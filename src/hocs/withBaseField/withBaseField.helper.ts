@@ -65,7 +65,7 @@ export const useWithBaseFieldHelper = <T extends FormikValues,>(
      *
      * @param e - The `FocusEvent` object.
      */
-    const handleBlur = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setValue(e.target.value);
 
         debouncedBlurChange(e);
