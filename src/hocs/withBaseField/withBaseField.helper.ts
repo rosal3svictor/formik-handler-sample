@@ -20,52 +20,16 @@ export const useWithBaseFieldHelper = <T extends FormikValues,>(
     const [value, setValue] = useState<string>('');
 
     /**
-     * Handles the `onChange` event for the input element.
-     *
-     * @param input - The `ChangeEvent` object representing the input event.
-     */
-    const onChange = (
-        input: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    ) => {
-        if (props.formhandler) {
-            props.formhandler.setFormValue({
-                field: props.name,
-                value: input.target.value,
-            });
-        }
-
-        if (props.onChange) {
-            props.onChange(input);
-        }
-    };
-
-
-    /**
-      * Handles the `onBlur` event for the input element.
-      *
-      * @param input - The `FocusEvent` object representing the blur event.
-      */
-    const onBlur = (
-        input: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
-    ) => {
-        if (props.formhandler) {
-            props.formhandler.setFormValue({
-                field: props.name,
-                value: input.target.value,
-            });
-        }
-
-        if (props.onBlur) {
-            props.onBlur(input);
-        }
-    };
-
-    /**
       * A debounced version of the `onChange` function.
       */
     const debouncedHandleChange = useCallback(
-        debounce((value) => {
-            onChange(value);
+        debounce((input: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            props.formhandler && props.formhandler.setFormValue({
+                field: props.name,
+                value: input.target.value,
+            });
+
+            props.onChange && props.onChange(input);
         }, 300),
         []
     );
@@ -74,8 +38,13 @@ export const useWithBaseFieldHelper = <T extends FormikValues,>(
       * A debounced version of the `onBlur` function.
       */
     const debouncedBlurChange = useCallback(
-        debounce((value) => {
-            onBlur(value);
+        debounce((input: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            props.formhandler && props.formhandler.setFormValue({
+                field: props.name,
+                value: input.target.value,
+            });
+
+            props.onBlur && props.onBlur(input);
         }, 300),
         []
     );
