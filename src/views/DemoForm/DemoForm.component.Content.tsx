@@ -17,29 +17,27 @@ import type { FormDebugOption } from '@interfaces';
 export const FormContent = ({ debugMode = false }: FormDebugOption) => {
   const { formHandler } = useDemoFormContext();
 
-  return (
-    <FormContainer data-testid="form-container">
-      <TextField
-        data-testid="name-input"
-        name="name"
-        label="Name"
-        formhandler={formHandler}
-      />
-      <TextField
-        data-testid="lastName-input"
-        name="lastName"
-        label="Last Name"
-        formhandler={formHandler}
-      />
-      <button
-        type="button"
-        onClick={formHandler.onSubmitHandler}
-        disabled={formHandler.formState().isValid}
-      >
-        Submit
-      </button>
-      <ActionButtons />
-      {debugMode && DebugModeUI(formHandler)}
-    </FormContainer>
-  );
+  return <FormContainer data-testid="form-container">
+    <TextField
+      data-testid="name-input"
+      name="name"
+      label="Name"
+      formhandler={formHandler}
+    />
+    <TextField
+      data-testid="lastName-input"
+      name="lastName"
+      label="Last Name"
+      formhandler={formHandler}
+    />
+    <button
+      type="button"
+      onClick={formHandler.onSubmitHandler}
+      disabled={formHandler.formState().isValid}
+    >
+      Submit
+    </button>
+    <ActionButtons />
+    {debugMode && DebugModeUI(formHandler)}
+  </FormContainer>
 };
