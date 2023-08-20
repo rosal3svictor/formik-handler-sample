@@ -24,11 +24,13 @@ export const useWithBaseFieldHelper = <T extends FormikValues,>(
       */
     const debouncedHandleChange = useCallback(
         debounce((input: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            // This will update Formik's state
             props.formhandler && props.formhandler.setFormValue({
                 field: props.name,
                 value: input.target.value,
             });
 
+            // This will update local input state
             props.onChange && props.onChange(input);
         }, 300),
         []
@@ -39,11 +41,13 @@ export const useWithBaseFieldHelper = <T extends FormikValues,>(
       */
     const debouncedBlurChange = useCallback(
         debounce((input: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            // This will update Formik's state
             props.formhandler && props.formhandler.setFormValue({
                 field: props.name,
                 value: input.target.value,
             });
 
+            // This will update local input state
             props.onBlur && props.onBlur(input);
         }, 300),
         []
