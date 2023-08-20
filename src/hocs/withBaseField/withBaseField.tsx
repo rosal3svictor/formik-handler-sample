@@ -42,10 +42,10 @@ export function withBaseField<T extends FormikValues>(
     useEffect(() => {
       setInitialValue();
 
-      () => () => {
+      return () => {
         debouncedHandleChange.cancel();
         debouncedBlurChange.cancel();
-      }
+      };
     }, [props.formhandler?.formState().currentState]);
 
 
