@@ -42,6 +42,7 @@ export function withBaseField<T extends FormikValues>(
     useEffect(() => {
       setInitialValue();
 
+      // Clean up debounced functions when component is unmounted
       return () => {
         debouncedHandleChange.cancel();
         debouncedBlurChange.cancel();
