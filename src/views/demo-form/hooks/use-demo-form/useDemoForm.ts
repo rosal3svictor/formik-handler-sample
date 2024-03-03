@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import * as yup from 'yup'
-import { useFormHandler } from '@utils'
+import { useFormHandler } from 'hooks'
 
 import type { FormMode, UseFormHelperReturn } from '@interfaces'
 import type { DemoFormSchema } from '../../interfaces'

@@ -97,6 +97,7 @@ export const useWithBaseFieldHelper = <T extends FormikValues>(
    * - Initial value assigned to the field when implemented outside of a form
    */
   const setInitialValue = () => {
+    console.log('setInitialValue ', props.value)
     setValue(
       props.formhandler?.formState().currentState[props.name] ?? props.value
     )

@@ -1,5 +1,5 @@
 import { TextField } from '@components'
-import { DebugModeUI } from '@utils'
+import { DebugModeUI } from 'hooks'
 
 import { useDemoFormContext } from '../../providers'
 import { ActionButtons } from '../../components'

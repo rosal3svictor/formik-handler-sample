@@ -15,7 +15,7 @@
     "resolveJsonModule": true,
     "paths": {
       "@interfaces": ["interfaces"],
-      "@utils": ["utils"],
+      "@hooks": ["hooks"],
       "@hocs": ["hocs"],
       "@components": ["components"]
     },

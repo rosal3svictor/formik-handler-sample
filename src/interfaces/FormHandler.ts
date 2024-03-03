@@ -1,5 +1,5 @@
 import type { ObjectSchema, AnyObject } from 'yup'
-import type { useFormHandler } from '@utils'
+import type { useFormHandler } from 'hooks'
 import type { FormikHelpers, FormikValues } from 'formik'
 
 /**
@@ -63,7 +63,7 @@ export interface SetValueProps {
 }
 
 /**
- * Represents the return type of the `useFormHandler` hook from the `@utils`
+ * Represents the return type of the `useFormHandler` hook from the `@hooks`
  * module.
  *
  * @typeParam T - The type of form values.
